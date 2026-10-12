@@ -1,0 +1,1 @@
+A playful offline drawing and coloring app for Android and iOS, built with React Native, TypeScript, MVVM and Clean Architecture by breda_dev.

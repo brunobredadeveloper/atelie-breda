@@ -1,0 +1,12 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "lib": [
+      "ES2023",
+      "DOM"
+    ],
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  }
+}
