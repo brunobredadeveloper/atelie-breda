@@ -8,11 +8,19 @@
 - Quatro percursos Playwright da interface WEB (390 × 844 e 360 × 640): desenhar com coordenadas verificadas, preencher regiões, manter canvas quadrado em tela compacta, salvar, galeria, persistência após reload e barreira de responsáveis com erro/acerto e tentativa de acesso direto à URL privada aprovados. Sem pageerror no percurso. Não equivale a testes de gestos/renderização nos sistemas nativos.
 - Screenshots: capturadas da versão WEB React Native depois das transições, não são imagens de dispositivos Android ou iOS.
 
-## Pendências
+## GitHub Actions e APK
 
-Build APK local avançou pela configuração dos plugins, mas falhou na resolução de dependências AndroidX: HTTP HEAD do repositório Google Maven retornou 403 Forbidden neste ambiente. O bloqueio inicial de proxy/foojay foi resolvido; o bloqueio final é o download de artefatos Android. Não há APK/AAB validado nesta entrega e nenhum resultado verde de GitHub Actions. Workflow pronto para executar após criar/publicar o repositório.
+Código validado: `d086331371996b8aa5f653d381b54a39e2326184`.
 
-iOS: não foi feito build Xcode ou instalação física. TestFlight requer conta/equipe Apple e provisionamento. Exportação PNG, feedback tátil, limite de memória e comportamento de background devem ser validados nos aparelhos reais antes de release comercial.
+[Esteira Android aprovada](https://github.com/brunobredadeveloper/atelie-breda/actions/runs/38277398538): lint, TypeScript, dez testes de lógica, quatro percursos Playwright, exportação de bundles e compilação nativa APK concluídos com sucesso.
+
+Artefato: `atelie-breda-android-apk`. APK 0.1.0, 64.825.471 bytes, ABIs arm64-v8a e x86_64, bundle JavaScript incorporado. SHA-256: `4df970a26d4c0b5bc58f49224635cea5184b4eb418ef34503b515accd8fb24f0`. O ZIP baixado corresponde ao digest publicado pelo GitHub Actions. Build em modo release com assinatura debug para testes internos; não é assinatura de produção.
+
+## iOS e avaliação física
+
+[Verificação iOS](https://github.com/brunobredadeveloper/atelie-breda/actions/runs/38277913933), na branch `ci/ios-verification`: mesmos fontes do app, com condição de workflow para executar o build de simulador. As validações e o CocoaPods passaram; a compilação Xcode está em andamento. Ainda não há resultado confirmado do build nativo iOS.
+
+Não houve instalação física. TestFlight requer conta/equipe Apple e provisionamento. Exportação PNG, feedback tátil, limite de memória e comportamento de background devem ser validados nos aparelhos reais antes de release comercial.
 
 ## Checklist de aceitação no celular
 

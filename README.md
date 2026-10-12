@@ -57,6 +57,6 @@ O Playwright avalia a versão web em dois tamanhos de tela; não substitui teste
 
 [MVVM, Clean Architecture, SOLID e patterns](docs/architecture.md). Domínio e ViewModel testados com repositórios substituíveis. [Status real de validação](docs/validation.md).
 
-A esteira inclui testes, TypeScript, bundles Android/iOS/web, quatro percursos de interface Playwright e APK Android. Build de simulador iOS em macOS é manual via workflow_dispatch. O workflow só executa depois de publicar este projeto no GitHub; sua presença não significa execução verde.
+A [esteira Android passou](https://github.com/brunobredadeveloper/atelie-breda/actions/runs/38277398538), incluindo lint, TypeScript, dez testes de lógica, bundles Android/iOS/web, quatro percursos Playwright e APK nativo. Baixe o ZIP `atelie-breda-android-apk` nos artefatos dessa execução e extraia `app-release.apk`; o APK de testes usa assinatura debug. Build de simulador iOS em macOS pode ser executado via workflow_dispatch. Consulte a documentação de validação para o resultado nativo iOS e as avaliações físicas ainda necessárias.
 
 Identidade visual herdada da breda_dev. Vetores dos desenhos e código do produto originais; bibliotecas mantêm suas licenças. Nenhum dado pessoal ou imagem da criança da referência está incluído no app.
