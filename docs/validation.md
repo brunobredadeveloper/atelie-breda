@@ -18,7 +18,7 @@ Artefato: `atelie-breda-android-apk`. APK 0.1.0, 64.825.471 bytes, ABIs arm64-v8
 
 ## iOS e avaliação física
 
-[Verificação iOS](https://github.com/brunobredadeveloper/atelie-breda/actions/runs/38277913933), na branch `ci/ios-verification`: mesmos fontes do app, com condição de workflow para executar o build de simulador. As validações e o CocoaPods passaram; a compilação Xcode está em andamento. Ainda não há resultado confirmado do build nativo iOS.
+[Verificação iOS](https://github.com/brunobredadeveloper/atelie-breda/actions/runs/38277913933), na branch `ci/ios-verification`: mesmos fontes do app, com condição de workflow para executar o build de simulador. Validações, CocoaPods, compilação Xcode Release sem assinatura e publicação do artefato `atelie-breda-ios-simulator` concluídos com sucesso. O artefato é um aplicativo para simulador, não uma IPA instalável no iPhone.
 
 Não houve instalação física. TestFlight requer conta/equipe Apple e provisionamento. Exportação PNG, feedback tátil, limite de memória e comportamento de background devem ser validados nos aparelhos reais antes de release comercial.
 
