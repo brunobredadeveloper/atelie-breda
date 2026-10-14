@@ -1,62 +1,62 @@
-# Ateliê Breda 🎨
+# Ateliê Breda
 
-App React Native Android/iOS original da **breda_dev** para desenhar e colorir. Um ambiente infantil sem anúncios, sem cadastro e sem pressa, inspirado na facilidade de pintar com os dedos — sem copiar assets ou interface do aplicativo da referência.
+**Desenho e pintura infantil com galeria local, ferramentas criativas e área de responsáveis.**
 
-## Produto implementado
+Projeto de **Bruno Breda · breda_dev**. Permitir desenhar com os dedos e colorir modelos originais em uma experiência offline, com controle adulto das ações de compartilhamento.
 
-- Abertura nativa de marca, boas-vindas e transições com respeito a movimento reduzido.
-- Desenho livre com canetinha, lápis, arco-íris, borracha, nove cores, três espessuras e quatro papéis.
-- Doze ilustrações vetoriais originais: gato, coelho, peixe, borboleta, flor, sol, árvore, arco-íris, foguete, casa, barco e sorvete.
-- Pintura por toque em regiões, desenho livre sobre modelos e quatro carimbos.
-- Undo/redo, limpeza reversível, rascunho automático e galeria local com reabertura.
-- Estados de carregamento, salvamento, sucesso, erro e galeria vazia.
-- Área de responsáveis, gerenciamento da galeria, preferências e exportação PNG com share sheet Android/iOS.
-- Haptics opcionais, labels de acessibilidade e controles grandes.
+**Plataforma:** React Native · Expo SDK 57 · TypeScript · Android/iOS  
+**Estado:** implementação de portfólio em evolução; esteira aprovada na execução referenciada.
 
-**Monetização:** compra única do aplicativo na loja; conteúdo completo incluído. Não existe cobrança ativa na versão de teste nem integração IAP simulada. Consulte [publicação](docs/publication.md).
+[Fluxos e demonstração](docs/fluxos.md) · [Engenharia](docs/engenharia.md) · [Builds e evidências](docs/evidencias.md) · [Portfólio completo](https://github.com/brunobredadeveloper/breda-park-wash/blob/main/docs/portfolio-breda-dev.md)
 
-## Executar
+## O que você pode avaliar
 
-Node 24 e npm. Expo SDK 57, React Native 0.86.3, Expo Router e TypeScript strict. Android 7+ e iOS 16.4+; builds iOS requerem Xcode 26.4+. Dependências fixadas pelo package-lock.json.
+- Desenho livre, quatro ferramentas, nove cores, três espessuras e quatro papéis.
+- Doze ilustrações vetoriais próprias com preenchimento por regiões e carimbos.
+- Desfazer/refazer, rascunho automático e galeria local com reabertura.
+- Área de responsáveis, movimento reduzido e exportação PNG pelo sistema.
+
+## Experiência e navegação
+
+Veja o [mapa das telas e o roteiro de avaliação](docs/fluxos.md). Esta revisão não adiciona capturas sem origem verificável; imagens conceituais não são apresentadas como telas do aplicativo.
+
+## Fluxo principal
+
+1. Abra um desenho livre e experimente pincéis e espessuras.
+2. Desfaça e refaça um traço; limpe e desfaça a limpeza.
+3. Salve a criação, feche e reabra pela galeria.
+4. Escolha um modelo do catálogo e preencha regiões.
+5. Solicite exportação, passe pela barreira de responsáveis e compartilhe o PNG.
+
+## Executar e validar
+
+Node 24 e npm, conforme lockfile. Android 7+; iOS 16.4+. Confira os requisitos nativos e EAS na referência técnica.
 
 ```sh
 npm ci
 npm run check
 npx expo start
-```
-
-Expo Go compatível com SDK 57 permite avaliar em Android/iOS. Para experiência nativa completa, use development build ou APK; a exportação PNG depende dos módulos nativos. Nenhum serviço de backend ou Firebase é necessário para brincar.
-
-```sh
-npx expo prebuild --platform android --no-install
-cd android
-./gradlew :app:assembleRelease
-```
-
-A variante release inclui o bundle JS e funciona sem Metro. No build local/CI de teste, usa a chave debug gerada pelo template Expo; não é assinatura de produção. APK em android/app/build/outputs/apk/release/app-release.apk. Requer JDK 17, Android SDK/NDK compatíveis e espaço disponível. Não publique esse APK de teste na loja. Para produção use credenciais privadas próprias via EAS.
-
-```sh
-npx eas-cli@latest build --platform android --profile preview
-npx eas-cli@latest build --platform ios --profile ios-simulator
-npx eas-cli@latest build --platform all --profile production
-```
-
-EAS exige a conta Expo do titular e vínculo do projeto; builds para iPhone exigem credenciais Apple e provisionamento. IPA não instala como APK: use distribuição autorizada ou TestFlight. Build de simulador não roda no iPhone físico.
-
-## Teste de interface
-
-```sh
+# Validação de interface web:
 npx expo export --platform web
-npx playwright install chromium
 npm run test:ui
 ```
 
-O Playwright avalia a versão web em dois tamanhos de tela; não substitui testes nativos.
+Configuração, Firebase quando aplicável, assinatura e comandos adicionais: [referência técnica](docs/referencia-tecnica.md).
 
-## Arquitetura e validação
+[Abrir a execução verificada no GitHub Actions](https://github.com/brunobredadeveloper/atelie-breda/actions/runs/38277398538). A conclusão dessa execução é **success**; consulte os artefatos e a revisão de código em [evidências](docs/evidencias.md).
 
-[MVVM, Clean Architecture, SOLID e patterns](docs/architecture.md). Domínio e ViewModel testados com repositórios substituíveis. [Status real de validação](docs/validation.md).
+## Limites do produto
 
-A [esteira Android passou](https://github.com/brunobredadeveloper/atelie-breda/actions/runs/38277398538), incluindo lint, TypeScript, dez testes de lógica, bundles Android/iOS/web, quatro percursos Playwright e APK nativo. Baixe o ZIP `atelie-breda-android-apk` nos artefatos dessa execução e extraia `app-release.apk`; o APK de testes usa assinatura debug. O [build nativo iOS de simulador também passou](https://github.com/brunobredadeveloper/atelie-breda/actions/runs/38277913933). Novos builds iOS em macOS podem ser executados via workflow_dispatch. O artefato de simulador não instala em iPhone físico; consulte a documentação de validação para as avaliações físicas ainda necessárias.
+Sem backend ou autenticação. Compra única na loja é proposta de monetização; não há cobrança ativa/IAP. Evidências Playwright são da versão web, não de gestos nativos. Build iOS disponível para simulador; não instala em iPhone físico.
 
-Identidade visual herdada da breda_dev. Vetores dos desenhos e código do produto originais; bibliotecas mantêm suas licenças. Nenhum dado pessoal ou imagem da criança da referência está incluído no app.
+## Para quem revisa o portfólio
+
+Famílias e equipes que avaliam produtos React Native para Android e iOS. As [decisões de engenharia](docs/engenharia.md) conectam responsabilidades, arquivos e testes. O [roteiro funcional](docs/fluxos.md) ajuda a avaliar comportamento, falhas e preservação de dados. Funcionalidade planejada não é apresentada como implementada.
+
+## Próximos passos
+
+- Validar os percursos no dispositivo real e registrar os resultados.
+- Revisar acessibilidade, interrupções e falhas de armazenamento/rede aplicáveis.
+- Concluir requisitos de distribuição, suporte e segurança antes de uso comercial.
+
+Código, mídias e dependências mantêm seus respectivos termos. Consulte os créditos e os avisos existentes no repositório.
